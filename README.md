@@ -1,7 +1,6 @@
 # USRealEstateProject
 
 ------ US GOVERNMENT REAL ESTSTAE ANALYSIS OF REAL ESTATE RECORD PROJECT-------
-==================================================================================
 
 
 DROP TABLE IF EXISTS property_sales;
@@ -19,8 +18,7 @@ CREATE TABLE property_sales (
 );
 
 
-------------US Real Government Analysis Record Business Question:
-====================================================================
+------US Real Government Analysis Record Business Question:
 
 -- 1. Count of NULLs per column
 -- 2. Find all rows with at least one NULL
