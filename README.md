@@ -28,9 +28,10 @@ The goal is to help policy makers, real estate investors, and local governments 
 
 ## Tools & Technologies
 - SQL: PostgreSQL for querying, cleaning, and extracting insights
-
 - Excel: For building a clean and engaging dashboard
 
+  
+## Key Insight
 - Single Family properties make up over 70% of all sales, but their assessment ratios vary significantly.
 - Several towns (e.g., Waterbury) show assessment ratios well below 0.5, indicating major undervaluation.
 - Real estate transactions consistently peak in August and September.
@@ -38,7 +39,7 @@ The goal is to help policy makers, real estate investors, and local governments 
 
 
 - Before bring in the Business question we first fron csv file of property_sales dataset by import dataset into postress sql database i.e property_sales_db 
-including schema adataset file and below is the sql for creating the dataset datatype columns accordingly
+including schema adataset file and below is the sql for creating the dataset datatype columns accordingly.
 
 
 DROP TABLE IF EXISTS property_sales;
