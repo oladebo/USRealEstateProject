@@ -1,6 +1,46 @@
-# USRealEstateProject
+# US Government Real Estate Records Analysis 
 
------- US GOVERNMENT REAL ESTSTAE ANALYSIS OF REAL ESTATE RECORD PROJECT-------
+## US Government Real Estate Records Analysis project
+
+Welcome to my project on analyzing US Government Real Estate Records, where I combined data analytics, SQL querying (PostgreSQL), and dashboard storytelling to derive actionable insights into the property sales assessment ratios across U.S. towns.
+
+
+## Project Overview
+This project investigates patterns in real estate records using a dataset of 57,966 property transactions. I built an interactive dashboard (in Excel) and used PostgreSQL to answer complex business questions related to:
+
+- Market value vs. assessed value
+
+- Property type distributions
+
+- Seasonal sales trends
+
+- Town-level valuation inconsistencies
+
+The goal is to help policy makers, real estate investors, and local governments understand the implications of under-assessment on tax revenue and identify where corrective measures may be necessary.
+
+## Business Questions Addressed
+- 1. Which towns or regions have the highest and lowest property assessment ratios? Why might these differences exist, and what are their tax implications?
+- 2. How do property sales and prices vary by property type (e.g., single family, condo, multi family)?
+- 3. What seasonal trends can be observed in real estate sales volume over the years?
+- 4. Is there a correlation between average property price and assessment ratio across towns?
+- 5. Which property types are consistently over- or under-assessed relative to their market values?
+- 6. How does the distribution of property types impact the overall property tax base and What is the effective property tax burden across different states or counties based on    assessment ratios?
+- 7. Which months or seasons consistently show the highest sales activity, and what factors contribute to this pattern?
+
+
+## Tools & Technologies
+- SQL: PostgreSQL for querying, cleaning, and extracting insights
+
+- Excel: For building a clean and engaging dashboard
+
+- Single Family properties make up over 70% of all sales, but their assessment ratios vary significantly.
+- Several towns (e.g., Waterbury) show assessment ratios well below 0.5, indicating major undervaluation.
+- Real estate transactions consistently peak in August and September.
+- The average property price was $481,018, while the average sales ratio was only 0.573, suggesting many properties are taxed on values below market reality.
+
+
+- Before bring in the Business question we first fron csv file of property_sales dataset by import dataset into postress sql database i.e property_sales_db 
+including schema adataset file and below is the sql for creating the dataset datatype columns accordingly
 
 
 DROP TABLE IF EXISTS property_sales;
@@ -18,7 +58,7 @@ CREATE TABLE property_sales (
 );
 
 
-------US Real Government Analysis Record Business Question:
+## US Real Government Analysis Record Business Question:
 
 -- 1. Count of NULLs per column
 -- 2. Find all rows with at least one NULL
@@ -37,7 +77,7 @@ CREATE TABLE property_sales (
 
 SELECT * FROM property_sales;
 
---1: Count of NULLs per column
+- 1: Count of NULLs per column
 
 
 SELECT 
@@ -52,7 +92,7 @@ SELECT
     COUNT(*) FILTER (WHERE property_type IS NULL) AS property_type_nulls
 FROM property_sales;
 
--- 2: Find all rows with at least one NULL
+- 2: Find all rows with at least one NULL
 
 
 SELECT *
@@ -68,8 +108,8 @@ WHERE serial_numb IS NULL
    OR property_type IS NULL;
    
    
--- 3. Which towns or regions have the highest and lowest property assessment ratios?
---This helps identify areas where assessed values are close to or far from actual sale prices.
+- 3. Which towns or regions have the highest and lowest property assessment ratios?
+- This helps identify areas where assessed values are close to or far from actual sale prices.
 
   
 
@@ -109,7 +149,7 @@ SELECT * FROM (
     LIMIT 5
 ) AS bottom_towns;
 
--- Note:
+### Note:
 
 -- AVG(sales_ratio):  This gives the average assessment ratio in each town.
 --GROUP BY town : Groups the data so we analyze by town.
@@ -131,9 +171,8 @@ SELECT * FROM (
 
 
 
--- 4. How do property sales and prices vary by property type 
---    (e.g., singlefamily, condo, multifamily)?
---This helps stakeholders compare market activity and value trends across different property types.
+- 4. How do property sales and prices vary by property type (e.g., singlefamily, condo, multifamily)?
+- 5. This helps stakeholders compare market activity and value trends across different property types.
 
 
 SELECT 
@@ -194,7 +233,7 @@ ORDER BY sale_year, sale_month;
 
 
 
--- 6. Is there a correlation between average property price and assessment ratio across towns?
+- 6. Is there a correlation between average property price and assessment ratio across towns?
 
 --This helps evaluate whether higher-priced towns tend to have higher or lower assessment accuracy (i.e., how close assessed values are to actual sales).
 
